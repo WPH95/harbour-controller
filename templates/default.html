@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <title>Hello!</title> 
+  <link href="../static/css/main_css.css" rel="stylesheet" type="text/css" /> 
+  <link href="../static/css/bootstrap.min.css" rel="stylesheet" /> 
+  <link href="../static/css/maintable.css" rel="stylesheet" /> 
+  <script type="text/javascript" src="../static/js/jquery-1.7.1.js"></script> 
+  <script type="text/javascript" src="../static/js/jquery.ztree.core-3.2.js"></script> 
+  <script type="text/javascript" src="../static/js/commonAll.js"></script> 
+  <script src="../static/js/jquery.min.js"></script> 
+  <script src="../static/js/bootstrap.min.js"></script> 
+  <script>
+function changepage(url){
+  inner.src=url;
+}
+</script>
+ </head>  
+ <body> 
+  <table> 
+   <tbody>
+    <tr class="navbaruptr"> 
+     <td class="navbaruptd"> 
+      <nav class="navbar navbar-default"> 
+       <div class="navbar-header"> 
+        <a class="navbar-brand" href="#">Harbour</a> 
+       </div> 
+       <div> 
+        <ul class="nav navbar-nav"> 
+         <li><a href="#">Machines</a></li> 
+         <li><a href="#">Containers</a></li> 
+        </ul>
+       </div>
+      </nav> </td> 
+    </tr> 
+    <tr> 
+     <td class="gobackuptd"> 
+      <div id="top"> 
+       <div id="top_logo"> 
+        <img alt="Goback" src="../static/img/leftarrow.png" class="gobackicon"/> 
+        <a class="goback">GoBack</a> 
+       </div> 
+       <div id="top_links"> 
+        <p>Control Center</p> 
+       </div> 
+      </div> 
+      <div id="maincopy"> 
+       <table class="ControllerListuptd"> 
+        <tbody class="ControllerListuptr">
+         <tr > 
+          <td class="ControllerListtd"><p class="ControllerListp">Controller List</p></td> 
+          <td style="border-top-right-radius: 10px;"> 
+           <form> 
+            <input type="text" class="input-medium search-query" class="input-mediumsearch-query" placeholder="Filter control by name.." /> 
+           </form>
+            
+         </tr> 
+         <tr class="CONTROLLERIDUPTR"> 
+          <td colspan="2"><span class="CONTROLLERID">CONTROLLER ID</span>
+                          <span class="CONTROLLERLABELS">CONTROLLER LABELS</span>
+                          <span class="STATUS">STATUS</span>
+                          <span class="PODSELECTOR">POD SELECTOR</span>
+                          <span class="DESIGNEDCOUNT">DESIGNED COUNT</span>
+          </td> 
+         </tr> 
+        
+        </tbody>
+       </table> 
+          {% for image in images %}
+          <div>
+           <div class="panel-group" id="accordion"> 
+            <div class="panel panel-default"> 
+             <div class="panel-heading"> 
+              <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"> 
+                <table> 
+                 <thead> 
+                  <tr class="table" > 
+                   <td class="tablerowid"><img src="../static/img/rc.png" class="tablercrowpic"><span>{{ image.name }}</td>
+                   <td class="tablerowlabels">
+
+                       {% for t in  image.label.all %}
+                       <div class="purplealert">
+                       {{ t }}
+                        </div>
+                          {% endfor %}
+                   </td>
+                   <td class="tablestatus">{{ image.container_set.all.count }}</td>
+                   <td class="tablepod">app=search</td>
+                   <td class="tabledesigned">5</td>
+                  </tr> 
+                 </thead> 
+                </table> </a> </h4> 
+             </div> 
+             <div id="collapseOne" class="panel-collapse collapse in"> 
+              <div class="panel-body"> 
+               <table class="table"> 
+                <tbody> 
+                 <tr style="font-weight: lighter;">
+                  <td class="POID">POID</td> 
+                  <td>POID LABELS</td> 
+                  <td>STATUS</td> 
+                  <td>CONTAINER</td> 
+                  <td>MACHINES</td> 
+                 </tr>
+
+                 {% for container in image.container_set.all %}
+                 <tr> 
+                  <td class="underpoid"><img src="../static/img/toolset.png" class="tablerowiconset" /><img src="../static/img/p.png" class="tablercrowpic" />
+                  <a href="#">{{ container.name }}</a></td>
+                  <td>
+                      {% for t in container.label.all %}
+                      <div class="greenalert">{{ t }}</div>
+                        {% endfor %}
+
+                  </td>
+                  <td class="understatus">{{ container.status }}</td>
+                  <td class="underpod">1</td> 
+                  <td class="underdesigned">{{ container.engine }}</td>
+                 </tr> 
+                    {% endfor %}
+
+
+                </tbody> 
+               </table> 
+              </div> 
+             </div> 
+            </div> 
+           </div>
+          </div>
+
+          {% endfor %}
+
+      </div></td> 
+    </tr> 
+   </tbody>
+  </table> 
+  <script type="text/javascript">
+   $(function () { $('#collapseone').collapse('hide')}); //hide \toggle\show\
+</script>          
+ </body>
+</html>

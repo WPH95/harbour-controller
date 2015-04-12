@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Hello!</title>
+	<link href="../static/css/main_css.css" rel="stylesheet" type="text/css" />
+	<link href="../static/css/bootstrap.min.css" rel="stylesheet">
+	  <link href="../static/css/maintable.css" rel="stylesheet" /> 
+	<script type="text/javascript" src="../static/js/jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="../static/js/jquery.ztree.core-3.2.js"></script>
+	<script type="text/javascript" src="../static/js/commonAll.js"></script>
+  <script src="../static/js/jquery.min.js"></script>
+  <script src="../static/js/bootstrap.min.js"></script>
+	
+</head>
+<script>
+function changepage(url){
+  inner.src=url;
+}
+</script>
+<body>
+<table> 
+   <tbody>
+    <tr class="navbaruptr"> 
+     <td class="navbaruptd"> 
+      <nav class="navbar navbar-default"> 
+       <div class="navbar-header"> 
+        <a class="navbar-brand" href="#">Harbour</a> 
+       </div> 
+       <div> 
+        <ul class="nav navbar-nav"> 
+         <li><a href="#">Machines</a></li> 
+         <li><a href="#">Containers</a></li> 
+        </ul>
+       </div>
+      </nav> </td> 
+    </tr> 
+    <tr> 
+     <td class="gobackuptd"> 
+      <div id="top"> 
+       <div id="top_logo"> 
+        <img alt="Goback" src="../static/img/leftarrow.png" class="gobackicon"/> 
+        <a class="goback">GoBack</a> 
+       </div> 
+       <div id="top_links"> 
+        <p>Control Center</p> 
+       </div> 
+      </div> 
+        <!-- side menu start -->
+      <div id="side">
+        <div id="left_menu">
+          <ul id="TabPage2" style="height:200px;">
+            <li id="left_tab1" class="selected" onClick="javascript:changepage('DashBoard.html');switchTab('TabPage2','left_tab1');" title="DashBoard"> <img alt="DashBoard" title="DashBoard" src="../static/img/1_hover.png" width="33" height="31"> </li>
+            <li id="left_tab2" onClick="javascript:changepage('Setting.html');switchTab('TabPage2','left_tab2');" title="Setting"> <img alt="Setting" title="Setting" src="../static/img/2.png" width="33" height="31"> </li>
+          </ul>
+        </div>
+      </div>
+      <script type="text/javascript">
+		$(function(){
+			$('#TabPage2 li').click(function(){
+				var index = $(this).index();
+				$(this).find('img').attr('src', '../static/img/'+ (index+1) +'_hover.png');
+				$(this).css({background:'#fff'});
+				$('#nav_module').find('img').attr('src', '../static/img/module_'+ (index+1) +'.png');
+				$('#TabPage2 li').each(function(i, ele)  cx  zx
+					if( i!=index ){
+						$(ele).find('img').attr('src', '../static/img/'+ (i+1) +'.png');
+						$(ele).css({background:'#DAE0E4'});
+					}
+				});
+				// 显示侧边
+				switchSysBar(true);
+			});
+			
+			// 显示隐藏侧边
+			$("#show_hide_btn").click(function() {
+		        switchSysBar();
+		    });
+		});
+		
+		
+	  </script>
+      <!-- side menu start -->
+      <div id="main">
+        <iframe name="right" id="inner" src="set.html" frameborder="0" scrolling="auto" width="100%" height="100%"/>      
+    </div>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
+   
+ 

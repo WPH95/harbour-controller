@@ -1,0 +1,165 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+html,body {
+	background:#203F54;
+	font: normal 15px "Microsoft YaHei";
+}
+
+#top {
+	
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	right: 0px;
+	height: 60px;
+	background-color: #203F54;
+	
+}
+
+#top_logo {
+	float: left;
+	vertical-align: middle;
+	line-height: 65px;
+	padding: 1px 1px 1px 20px;
+}
+
+#top_links {
+	height: 65px;
+	line-height: 65px;
+	color: #FFFFFF;
+	line-height: 65px;
+	vertical-align: middle;
+	margin-top:3px;
+	margin-left:550px;
+	font-size:40px;
+	
+}
+
+#top_op {
+	width: 400px;
+}
+
+#top_op ul {
+	list-style-type: none;
+}
+
+#top_op ul li {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+#top_op ul li img {
+	vertical-align: text-top;
+}
+
+#top_links a:link,#nav_links a:visited,#nav_links a:hover,#nav_links a:active
+	{
+	list-style: none;
+	text-decoration: none;
+	color: #fff;
+}
+
+#top_links a:hover {
+	list-style: none;
+	text-decoration: underline;
+	color: #fff;
+}
+
+#top_close {
+	width: 80px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	border-left: 1px solid #171717;
+	vertical-align: text-top;
+}
+
+#side {
+	position: absolute;
+	left: 0;
+	top: 70px;
+	bottom: 0px;
+	width: 280px;
+	overflow: hidden;
+/* 	border-right: 5px solid #DDDDDD; */
+}
+
+#main {
+	position: absolute;
+	left: 80px;
+	top: 120px;
+	bottom: 0px;
+	right: 20px;
+	width: auto;
+	z-index: 2;
+	overflow: hidden;
+}
+#maincopy {
+	position: absolute;
+	left: 20px;
+	top: 120px;
+	bottom: 40px;
+	right: 20px;
+	width: auto;
+	z-index: 2;
+	overflow: hidden;
+}
+
+#top_nav {
+	position: fixed;
+	width: 77%;
+	top: 100px;
+	left: 100px;
+	height: 58px;
+	line-height: 70px;
+	color: #8A8A8A;
+	font-size: 14px;
+	border-bottom: 1px solid #EDEDED;
+}
+
+#left_menu {
+	width: 60px;
+	position: absolute;
+	top: 50px;
+	left:20px;
+	bottom: 0px;
+	background: #DAE0E4;
+	overflow: hidden;
+}
+
+#left_menu_cnt {
+	width: 220px;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 60px;
+	overflow: auto;
+	background: #F1F1F1;
+}
+
+#left_menu_cnt #nav_module {
+	position: fixed;
+	padding-left: 10px;
+	background: #F1F1F1;
+}
+
+#left_menu_cnt #nav_resource {
+	margin-top: 60px;
+	overflow: auto;
+}
+
+#TabPage2 li {
+	padding: 19px 9px 19px 15px;
+	cursor: pointer;
+}
+
+.selected {
+	background: #FFF;
+	cursor: pointer;
+}
